@@ -4,7 +4,7 @@ import xml.etree.ElementTree as ET
 import datetime
 from models.trainarrival import TrainArrival
 
-#test comment
+#this should appear on master
 
 def getTrainArrivals() -> List[TrainArrival]:
     baseCtaUrl = "http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx/"
