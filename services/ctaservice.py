@@ -2,6 +2,7 @@ from typing import List
 import requests
 import xml.etree.ElementTree as ET
 import datetime
+import pytz
 from models.trainarrival import TrainArrival
 
 #this should appear on master
@@ -45,13 +46,14 @@ def formatArrival(arrivalStr: str) -> datetime.timedelta:
     # Convert the string to a datetime object
     datetime_arrival = datetime.datetime.strptime(arrivalStr, date_format)
     
-    # Get the current time
+
+
     now = datetime.datetime.now()
-    
+    now = now - datetime.timedelta(hours=1)
     # Calculate the time difference
     time_diff = datetime_arrival - now
 
-    minutes_diff = divmod(time_diff.total_seconds(), 60)[0]  # divmod gives (minutes, seconds)
-
+    minutes_diff = int(divmod(time_diff.total_seconds(), 60)[0])  # divmod gives (minutes, seconds)
+    minutes_diff 
     
     return minutes_diff
